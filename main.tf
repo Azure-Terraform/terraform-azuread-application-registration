@@ -25,4 +25,7 @@ resource "null_resource" "wait" {
     on_failure  = continue
     interpreter = ["bash"]
   }
+
+  # Ensure wait is run last
+  depends_on = [azuread_service_principal_password.service] 
 }
