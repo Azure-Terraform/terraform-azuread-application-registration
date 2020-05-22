@@ -18,3 +18,11 @@ resource "azuread_service_principal_password" "service" {
   value                = random_password.password.result
   end_date             = "2099-01-01T01:02:03Z"
 }
+
+resource "null_resource" "wait" {
+  provisioner "local-exec" {
+    command     = "sleep 30"
+    on_failure  = "continue"
+    interpreter = ["bash"]
+  }
+}
