@@ -23,7 +23,6 @@ resource "null_resource" "wait" {
   provisioner "local-exec" {
     command     = "sleep 30"
     on_failure  = continue
-    interpreter = ["bash"]
   }
 
   # Ensure wait is run last
