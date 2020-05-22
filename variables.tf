@@ -1,5 +1,15 @@
-# Tagging
-variable "meta_data" {
-  description = "Output of the meta date module"
-  type = map(string)
+variable "tags" {
+  description = "Tags to be applied to resources (inclusive)"
+  type        = map(string)
+}
+
+variable "names" {
+  description = "Names to be applied to resources (inclusive)"
+  type        = object({
+                  environment         = string
+                  location            = string
+                  market              = string
+                  product_name        = string
+                  resource_group_type = string
+                })
 }

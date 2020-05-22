@@ -1,11 +1,12 @@
 resource "azuread_application" "app" {
-  name                       = "ris-azr-app-${var.meta_data.market}-${var.meta_data.product}"
+  name                       = "ris-azr-app-${var.names.market}-${var.names.product}-${var.names.environment}"
   available_to_other_tenants = false
 }
 
 resource "azuread_service_principal" "service" {
   application_id               = "${azuread_application.app.application_id}"
   app_role_assignment_required = false
+  tags                         = var.tags
 }
 
 resource "random_password" "password" {
