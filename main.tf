@@ -6,7 +6,6 @@ resource "azuread_application" "app" {
 resource "azuread_service_principal" "service" {
   application_id               = "${azuread_application.app.application_id}"
   app_role_assignment_required = false
-  tags                         = var.tags
 }
 
 resource "random_password" "password" {
