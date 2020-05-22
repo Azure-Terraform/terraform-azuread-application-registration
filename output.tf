@@ -12,9 +12,9 @@ output "service_principal_name" {
   description = "Service Principal display name"
 }
 
-output "service_principal_object_id" {
-  value = azuread_service_principal.service.object_id
-  description = "Service Principal unique object ID"
+output "service_principal_id" {
+  value = azuread_service_principal.service.id
+  description = "Service Principal unique ID"
 }
 
 output "service_principal_secret" {
