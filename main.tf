@@ -1,5 +1,5 @@
 resource "azuread_application" "app" {
-  name                       = "ris-azr-app-${var.names.market}-${var.names.product}-${var.names.environment}"
+  name                       = "ris-azr-app-${var.names.market}-${var.names.product_name}-${var.names.environment}"
   available_to_other_tenants = false
 }
 
