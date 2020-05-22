@@ -22,7 +22,7 @@ resource "azuread_service_principal_password" "service" {
 resource "null_resource" "wait" {
   provisioner "local-exec" {
     command     = "sleep 30"
-    on_failure  = "continue"
+    on_failure  = continue
     interpreter = ["bash"]
   }
 }
