@@ -4,7 +4,7 @@ resource "azuread_application" "app" {
 }
 
 resource "azuread_service_principal" "service" {
-  application_id               = "${azuread_application.app.application_id}"
+  application_id               = azuread_application.app.application_id
   app_role_assignment_required = false
 }
 
@@ -14,7 +14,7 @@ resource "random_password" "password" {
 }
 
 resource "azuread_service_principal_password" "service" {
-  service_principal_id = "${azuread_service_principal.service.id}"
+  service_principal_id = azuread_service_principal.service.id
   value                = random_password.password.result
   end_date             = "2099-01-01T01:02:03Z"
 }
